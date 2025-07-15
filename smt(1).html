@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新沂水蜜桃 - 自然的甜蜜馈赠</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #277c2d;
+            --accent-color: #ff9800;
+            --text-dark: #333;
+            --text-light: #f5f5f5;
+            --background: #ffffff;
+            --card-bg: #f8fff8;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 英雄区域样式 */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(191, 194, 191, 0.7), rgba(171, 171, 171, 0.574)), 
+                     url('https://i.ibb.co/DfS4WTTK/658364efaf4bf1a1153af2c8fba32e31.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 主要内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* 关于部分 */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* 历史时间线 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--primary-dark);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* 产品展示 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-text {
+            padding: 20px;
+        }
+        
+        .gallery-text h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        /* 特点部分 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0 !important;
+            }
+            
+            .timeline-item::after {
+                left: 21px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-peach"></i>
+                <span>新沂水蜜桃</span>
+            </div>
+            <ul class="nav-links">
+                
+                <li><a href="#history">种植历史</a></li>
+                <li><a href="#gallery">水蜜桃展示</a></li>
+                <li><a href="#features">产品特点</a></li>
+                <li><a href="#contact">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <h1>自然的甜蜜馈赠</h1>
+        <p>新沂水蜜桃，源自江苏新沂的绿色珍宝，每一口都是大自然的精华</p>
+        <a href="#about" class="btn">探索更多</a>
+    </section>
+
+    <!-- 关于部分 -->
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2>关于新沂水蜜桃</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新沂水蜜桃产自江苏省新沂市，这里气候温和、雨量充沛、土壤肥沃，为水蜜桃的生长提供了得天独厚的自然条件。新沂水蜜桃以其果大、肉厚、汁多、味甜、香气浓郁而闻名遐迩，被誉为"桃中珍品"。</p>
+                <br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新沂水蜜桃品种丰富，包括雨花露、白凤、湖景蜜露等多个优质品种，成熟期从6月持续到9月。每一颗水蜜桃都经过精心培育，采用绿色生态种植技术，确保果实的自然风味和健康品质。</p>
+                <br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新沂水蜜桃不仅美味可口，还富含多种维生素、矿物质和抗氧化物质，具有美容养颜、促进消化、增强免疫力等功效，是健康生活的理想选择。</p>
+            </div>
+            <div class="about-image">
+                <img src="https://i.ibb.co/SwY0XrMQ/smt6.jpg" alt="新沂水蜜桃果园">
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史部分 -->
+    <section id="history" class="container" style="background-color: #f9fff9; padding: 5rem 2rem;">
+        <div class="section-title">
+            <h2>种植历史</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">1950年代</div>
+                <p>新沂地区开始引进水蜜桃种植技术，最初作为试验性作物在少数农场种植。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1978年</div>
+                <p>新沂水蜜桃首次参加江苏省农产品展销会，以其独特的风味获得专家一致好评。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">1995年</div>
+                <p>新沂水蜜桃获得国家地理标志产品认证，标志着其独特品质得到官方认可。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2008年</div>
+                <p>新沂水蜜桃种植面积突破10万亩，成为当地农业支柱产业，带动数万农民增收。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2016年</div>
+                <p>新沂水蜜桃出口东南亚、日韩等国家和地区，国际市场反响热烈。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2023年</div>
+                <p>新沂水蜜桃年产量达30万吨，形成完整的产业链，从种植到深加工再到品牌营销。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="gallery" class="container">
+        <div class="section-title">
+            <h2>水蜜桃展示</h2>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="https://i.ibb.co/6MQShjF/smt2.jpg" alt="新鲜水蜜桃">
+                </div>
+                <div class="gallery-text">
+                    <h3>新鲜采摘</h3>
+                    <p>清晨采摘的水蜜桃，果皮覆盖着薄薄的绒毛，散发着自然的果香。新沂水蜜桃果肉细腻，汁多味甜，香气浓郁，入口即化，回味无穷。</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="https://i.ibb.co/6cKF5ftK/smt1.jpg" alt="水蜜桃果园">
+                </div>
+                <div class="gallery-text">
+                    <h3>生态果园</h3>
+                    <p>新沂水蜜桃生长在阳光充足、水源洁净的自然环境中，采用有机种植方式。</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img">
+                    <img src="https://i.ibb.co/PsqgLFGN/smt5.jpg" alt="水蜜桃包装">
+                </div>
+                <div class="gallery-text">
+                    <h3>丰收喜悦</h3>
+                    <p>每年夏季，新沂的水蜜桃迎来丰收季节，是果农们最繁忙但最开心的时候</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 特点部分 -->
+    <section id="features" class="container" style="background-color: #f9fff9; padding: 5rem 2rem;">
+        <div class="section-title">
+            <h2>产品特点</h2>
+        </div>
+        <div class="features">
+           <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>品质认证</h3>
+                <p>获得国家地理标志产品认证、绿色食品认证等多重质量认证。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>生态种植</h3>
+                <p>采用有机肥料和生物防治技术，确保水蜜桃自然生长，无农药残留。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>营养丰富</h3>
+                <p>富含维生素C、维生素A、钾、膳食纤维等多种营养成分，有益健康。</p>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新沂水蜜桃专业合作社成立于1998年，源自新沂，以桃传情的匠心农人
+
+我们扎根于被誉为“中国水蜜桃之乡”的江苏新沂，是这片沃土上世代耕耘的水蜜桃生产商。骆马湖的温润水汽，马陵山的独特气候，以及我们对土地深沉的热爱，共同孕育了这份得天独厚的甜蜜馈赠——新沂水蜜桃。
+
+三代传承，只为一口地道风味。 从祖辈的精心选育，到父辈的探索改良，再到我们这一代对生态种植的执着坚守，这份甜蜜的事业流淌在家族的血液里。我们不仅仅种植水蜜桃，更是在传承一种甜蜜的生活方式。 每一颗新沂水蜜桃，都承载着我们对家乡风土的深情，对自然馈赠的感恩，以及对每一位品尝者分享幸福的诚意。我们致力于让这份源自新沂的纯粹甜蜜，成为您味蕾上的美好记忆，传递健康、传递喜悦、传递一份质朴的匠心。
+
+选择我们的新沂水蜜桃，就是选择一份源自核心产地的品质承诺，选择一份三代农人用心守护的自然之味。
+
+期待用一颗颗甜蜜的新沂水蜜桃，与您结缘！</p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 滚动时添加动画效果
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.timeline-item, .gallery-item, .feature-card');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if(position.top < window.innerHeight * 0.85 && position.bottom >= 0) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // 初始化元素位置
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.timeline-item, .gallery-item, .feature-card');
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
