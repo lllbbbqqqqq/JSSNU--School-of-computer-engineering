@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新沂阳光玫瑰葡萄 - 绿色珍宝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5fcf4 0%, #e9f7e8 100%);
+            background-attachment: fixed;
+        }
+        
+        header {
+            background: linear-gradient(to right, #2c5f2d, #4caf50);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* 导航栏 */
+        nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(93, 46, 142, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-container a {
+            color: #2c5f2d;
+            text-decoration: none;
+            padding: 10px 25px;
+            margin: 0 10px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .nav-container a:hover, .nav-container a.active {
+            background: #4caf50;
+            color: white;
+        }
+
+        /* 英雄区域样式 */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(191, 194, 191, 0.7), rgba(171, 171, 171, 0.574)), 
+                     url('https://i.ibb.co/mYRQHHc/1e1ca527e49aa590dd7ad80e1b796104.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .intro h2 {
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #4caf50;
+            border-radius: 2px;
+        }
+        
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.2rem;
+            color: #444;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.8rem;
+            width: 30%;
+            min-width: 280px;
+            margin: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature i {
+            font-size: 3.5rem;
+            color: #4caf50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature h3 {
+            color: #2c5f2d;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .history-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                         url('https://images.unsplash.com/photo-1601001815894-4bb6c81416b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 3rem;
+            border-radius: 12px;
+        }
+        
+        .history-content h2 {
+            color: #2c5f2d;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.3rem;
+        }
+        
+        .history-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 3rem auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4caf50;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #4caf50;
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -36px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -36px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 300px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 95, 45, 0.85);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .cta {
+            background: linear-gradient(to right, #2c5f2d, #4caf50);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #2c5f2d;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: #f5fcf4;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+         footer {
+            background: linear-gradient(90deg, #4c7d4c 0%, #4caf50 100%);
+            color: #e5f6f1;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info {
+            text-align: left;
+            margin-top: 15px;
+        }
+        
+        .contact-info div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            line-height: 45px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: #4caf50;
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature {
+                width: 90%;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>新沂阳光玫瑰葡萄</h1>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#histroy">种植历史</a>
+            <a href="#zs">阳光玫瑰葡萄展示</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <h1>自然的甜蜜馈赠</h1>
+        <p>新沂水蜜桃，源自江苏新沂的绿色珍宝，每一口都是大自然的精华</p>
+        <a href="#about" class="btn">探索更多</a>
+    </section>
+    
+    <div class="container">
+        <section class="intro" id="about">
+            <h2>关于阳光玫瑰葡萄</h2>
+            <p>新沂阳光玫瑰葡萄，产自江苏省新沂市，是一种高品质的绿色葡萄品种。其果粒饱满，色泽翠绿如翡翠，口感清甜爽脆，带有独特的玫瑰香气，被誉为"葡萄中的贵族"。</p>
+            <p>得益于新沂市独特的地理环境和气候条件，这里生长的阳光玫瑰葡萄糖度高、香味浓、品质极佳，深受国内外消费者的喜爱。</p>
+        </section>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-apple-alt"></i>
+                <h3>独特口感</h3>
+                <p>果肉脆嫩多汁，甜而不腻，带有优雅的玫瑰香气，皮薄无籽，入口即化</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-heart"></i>
+                <h3>营养丰富</h3>
+                <p>富含维生素C、花青素、白藜芦醇等抗氧化物质，具有美容养颜、增强免疫力的功效</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h3>绿色种植</h3>
+                <p>采用生态种植技术，严格控制农药使用，确保每一颗葡萄都安全健康</p>
+            </div>
+        </div>
+        
+        <section class="history-section">
+            <div class="history-content" id="histroy">
+                <h2>种植历史</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阳光玫瑰葡萄原产于日本，是由日本果树科学研究所培育出的优质葡萄品种。2010年，新沂市农业部门首次从日本引进该品种，并在当地进行试种。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经过多年的适应性栽培和技术改良，新沂的果农们探索出了一套适合当地气候和土壤条件的种植技术，使阳光玫瑰葡萄在新沂的土地上茁壮成长。</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2010年</h3>
+                            <p>首次从日本引进阳光玫瑰葡萄品种，在新沂市马陵山地区进行小规模试种</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2013年</h3>
+                            <p>试种成功，果实品质优异，开始向周边农户推广种植</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2015年</h3>
+                            <p>新沂阳光玫瑰葡萄获得国家绿色食品认证，种植面积突破1000亩</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2018年</h3>
+                            <p>成立新沂阳光玫瑰葡萄产业协会，建立标准化种植体系</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2021年</h3>
+                            <p>种植面积达5000余亩，年产量超6000吨，成为新沂市特色农产品支柱产业</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery" id="zs">
+            <h2 style="grid-column: 1 / -1; text-align: center; color: #2c5f2d; margin-bottom: 1.5rem;">阳光玫瑰葡萄展示</h2>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/Xf0qxY6L/2025-07-15-231737-301.jpg" alt="葡萄园风光">
+                <div class="gallery-caption">新沂阳光玫瑰葡萄园全景</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/1G4fT5K9/2025-07-15-231524-959.jpg" alt="葡萄特写">
+                <div class="gallery-caption">成熟的阳光玫瑰葡萄特写</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/bR7dPgRL/2025-07-15-230841-314.jpg" alt="葡萄采摘">
+                <div class="gallery-caption">葡萄采摘过程</div>
+            </div>
+        </section>
+        
+        
+    </div>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>新沂阳光玫瑰葡萄产业协会成立于2015年，是由新沂市葡萄种植户、农业专家和相关企业共同发起的非营利性组织。协会致力于推广阳光玫瑰葡萄种植技术，提升产品质量，打造新沂特色农产品品牌。</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>联系我们</h3>
+                <div class="contact-info">
+                    <div><i class="fas fa-map-marker-alt"></i>江苏省新沂市葡萄产业园区</div>
+                    <div><i class="fas fa-phone"></i>0516-88889999</div>
+                    <div><i class="fas fa-envelope"></i>info@xinyigrape.com</div>
+                    <div><i class="fas fa-globe"></i>www.xinyigrape.com</div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+    </footer>
+</body>
+</html>
